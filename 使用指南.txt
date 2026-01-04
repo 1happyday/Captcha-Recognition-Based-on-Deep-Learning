@@ -1,0 +1,15 @@
+新建环境
+python -m venv ocr_env
+激活环境 
+ocr_env\Scripts\activate
+导入安装包
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple captcha opencv-python numpy keras tensorflow pillow scikit-learn
+执行流程
+生成验证码 + 预处理
+运行 captcha_generator.py，生成 1000 张验证码图片到pic文件夹，并测试预处理效果。
+字符分割 + 标注
+运行 char_segmentation.py，将pic中的验证码分割为单个字符，按字符标注保存到dataset文件夹。
+模型训练
+运行 model_train.py，加载dataset中的字符数据，搭建 CNN 模型并训练，训练好的模型保存到model文件夹。
+验证码识别测试
+运行 captcha_recognize.py，加载模型后对测试集验证码进行识别，输出真实值、预测值和准确率。
